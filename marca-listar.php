@@ -11,11 +11,17 @@ if($quantidade > 0){
             print "<tr>";
                     print "<th>".'ID Marca'."</th>";
                     print "<th>".'Nome Marca'."</th>";
+                    print "<th>".'Ações'."</th>";
             print "</tr>"; 
     while($row = $resultado->fetch_object()){//fetch_object - busca/puxa os objetos/resultados no banco
-            print "<tr>";
+            print "<tr>"; //ação javascript onclick redirecionando para a pagina que vai editar ou excluir,com barras invertidas para não dar erro nas aspas duplas
+                    //&id_marca=".$row->id_marca." - passando o parametro que é o ID que será editado ou excluido
                     print "<td>".$row->id_marca."</td>";
                     print "<td>".$row->nome_marca."</td>";
+                    print "<td>
+                                <button onclick=\"location.href='?page=marca-editar&id_marca=".$row->id_marca."';\" class='btn btn-primary'>Editar</button>
+                                <button onclick=\"location.href='?page=marca-excluir';\" class='btn btn-danger'>Excluir</button>
+                          </td>";
             print "</tr>";
         }
     print "</table>";
