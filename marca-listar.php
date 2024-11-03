@@ -15,7 +15,7 @@ if($quantidade > 0){
             print "</tr>"; 
     while($row = $resultado->fetch_object()){//fetch_object - busca/puxa os objetos/resultados no banco
             print "<tr>"; //ação javascript onclick redirecionando para a pagina que vai editar ou excluir,com barras invertidas para não dar erro nas aspas duplas
-                    //&id_marca=".$row->id_marca." - passando o parametro que é o ID que será editado ou excluido
+                    //&id_marca=".$row->id_marca." - passando o parametro que é o ID que será editado ou excluido, a $row que recebeu o acessso ao DB,acessa a linha daquele registro/marca do DB com o id_marca 
                     print "<td>".$row->id_marca."</td>";
                     print "<td>".$row->nome_marca."</td>";
                     print "<td>
