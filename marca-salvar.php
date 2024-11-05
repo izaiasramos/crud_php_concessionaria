@@ -43,6 +43,16 @@ switch ($_REQUEST['acao']) { // O switch recebe uma requisição que vem do inpu
 
     case 'excluir':
         // Lógica para excluir
+        $sql = "DELETE FROM marca WHERE id_marca=".$_REQUEST['id_marca'];//uso request porque o link vem nesse caso pela url
+        $resultado = $conn->query($sql);
+       
+        if ($resultado==true) { // Se a query acima der certo
+            print "<script>alert('Excluido com sucesso!');</script>"; // Alerta ao usuário
+            print "<script>location.href='?page=marca-listar';</script>"; // Redireciona o usuário
+        } else {
+                print "<script>alert('Não foi possível Excluir a marca!');</script>"; // Alerta de erro
+                print "<script>location.href='?page=marca-listar';</script>"; // Redireciona o usuário
+            }
         break;    
 }
 ?>

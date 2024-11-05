@@ -19,9 +19,12 @@ if($quantidade > 0){
                     print "<td>".$row->id_marca."</td>";
                     print "<td>".$row->nome_marca."</td>";
                     print "<td>
-                                <button onclick=\"location.href='?page=marca-editar&id_marca=".$row->id_marca."';\" class='btn btn-primary'>Editar</button>
-                                <button onclick=\"location.href='?page=marca-excluir';\" class='btn btn-danger'>Excluir</button>
-                          </td>";
+                                <button onclick=\"location.href='?page=marca-editar&id_marca=".
+                                $row->id_marca."';\" class='btn btn-primary'>Editar</button>
+                              
+                                <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=marca-salvar&acao=excluir&id_marca=".
+                                $row->id_marca."';}else{false;}\" class='btn btn-danger'>Excluir</button>
+                          </td>";  //não podemos excluir direto
             print "</tr>";
         }
     print "</table>";
